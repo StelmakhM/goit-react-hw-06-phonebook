@@ -1,10 +1,11 @@
 import styles from "./ContactList.module.css"
 import { useSelector, useDispatch } from "react-redux"
-import { removeContact } from "../../redux/slices/contactsSlice"
+import { removeContact, getContacts } from "../../redux/slices/contactsSlice"
+import { getFilter } from "../../redux/slices/filterSlice"
 
 export default function ContactList() {
-	const contacts = useSelector((state) => state.contacts)
-	const filter = useSelector((state) => state.filter)
+	const contacts = useSelector(getContacts)
+	const filter = useSelector(getFilter)
 	const dispatch = useDispatch()
 	const deleteContact = (id) => {
 		return () => {
